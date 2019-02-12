@@ -2,9 +2,9 @@
 puts "WELCOME TO SEED\n\n"
 puts "DESTROYING DB\n"
 
-puts "Destroying users"
-User.destroy_all
-puts "Users destroyed\n"
+# puts "Destroying users"
+# User.destroy_all
+# puts "Users destroyed\n"
 
 puts "Destroying events"
 Event.destroy_all
@@ -20,16 +20,16 @@ puts "Attendances destroyed\n"
 puts "\n\n"
 puts "SEEDING NEW DB\n"
 
-puts "Seeding users"
-5.times do 
-	User.create(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        email: Faker::Internet.email,
-        description: Faker::Lorem.paragraph(14)
-  )
-end
-puts "users seeded\n"
+# puts "Seeding users"
+# 5.times do 
+# 	User.create(
+#         first_name: Faker::Name.first_name,
+#         last_name: Faker::Name.last_name,
+#         email: Faker::Internet.email,
+#         description: Faker::Lorem.paragraph(14)
+#   )
+# end
+# puts "users seeded\n"
 
 
 puts "Seeding events"

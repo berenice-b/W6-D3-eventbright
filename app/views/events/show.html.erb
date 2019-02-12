@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Evénement</title>
+  <body> 
+  <div class="container">
+      <div class="jumbotron text-center text-primary bg-light">
+      <h5> Welcome sur la page de l événement N° <%=params[:id]%> !</h5> 
+      <h6>Voici les infos sur cet événement :</h6>
+      </div>
+
+        <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="row">#</th>
+                  <th scope="row">Start Date</th>
+                  <th scope="row">Duration</th>
+                  <th scope="row">Title</th>
+                  <th scope="row">Description</th>
+                  <th scope="row">Price</th>
+                  <th scope="row">Location</th>
+                </tr>
+              </thead>
+
+                <tbody>
+
+                  <tr>
+                    <th scope="col"> # </th>
+                    
+                    <td> <%= @event.start_date %> </td>
+                    <td> <%= @event.duration %> </td>
+                    <td> <%= @event.title %> </td>
+                    <td> <%= @event.description %> </td>
+                    <td> <%= @event.price %> </td>
+                    <td> <%= @event.location %> </td>
+                    
+                  </tr>
+              
+                </tbody>
+
+        </table>
+        </div>
+</body>
+</html>
