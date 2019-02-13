@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       end
 
       def user_match
-      if current_user == User.find(params[:id])
+      if current_user != User.find(params[:id])
         redirect_to root_path
       end
       end
