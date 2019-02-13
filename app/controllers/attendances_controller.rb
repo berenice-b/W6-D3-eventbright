@@ -8,5 +8,6 @@ class AttendancesController < ApplicationController
     def show
     end
     def create
+        @attendance = Attendance.create(event_id: Event.find(params[:id]), user_is: current_user.id)
     end
 end
