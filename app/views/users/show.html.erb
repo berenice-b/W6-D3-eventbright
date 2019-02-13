@@ -32,6 +32,30 @@
 
 </table>
 
+<h3 class="text-center"> Voici tous les événements gérés par cet utilisateur</h3>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="row">#</th>
+      <th scope="row">Event Name</th>
+      <th scope="row">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <th scope="col"> # </th>
+      <td> <%= event.title %> </td>
+      <td> <%= event.description %> </td>
+    </tr>
+<% end %>
+  </tbody>
+
+</table>
+
 
 </body>
 </html>
