@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Myapp</title>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -37,13 +39,28 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
+        <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+        <a class="nav-link dropdown-toggle"  href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+      </a>
+      
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %> </a>
+            <a class="dropdown-item" ><%= link_to "Secret page", home_secret_path %></a>
+            <a class="dropdown-item" ><%= link_to "Edit email / password", edit_user_registration_path %></a>
           </div>
+          <% else %>
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+      </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" ><%= link_to "Sign in", new_user_session_path %></a>
+            <a class="dropdown-item"><%= link_to "Sign up", new_user_registration_path %></a>
+  
+          </div>
+          <% end %>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -59,6 +76,13 @@
     <footer class="footer fixed-bottom bg-dark">
       <p>&copy; Company 2017-2018</p>
     </footer>
-
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
