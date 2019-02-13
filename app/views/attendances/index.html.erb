@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Bienvenue dans l index de vos participations</title>
+
+
+  <body> 
+  	
+    =begin <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/3-col-portfolio.css" rel="stylesheet"> =end
+
+
+  </head>
+
+
+  <body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+
+    <% if current_user %>
+     <center> <h1 class="my-4 center text-info">Bienvenue sur Eventbright !</h1></center>
+      <%else %> 
+      <h1 class="my-4 tex-center text-primary">Rejoignez les événements qui vous plaisent !</h1>
+      <%end%>
+      <h3 class="text-primary"> <%= link_to "Créer un nouvel événement", new_event_path %> </p> <i class="far fa-comment"></i>
+        <h1 class="tex-center text-primary">  Voici tous les événements </h1>
+    
+
+        <% @events.each do |event| %>
+   	
+		      <div class="card alert alert-primary shadow-lg p-4 mb-4" >
+		  <div class="card-header " >
+      <h5 class="card-title text-center"><%= event.title %></h5>
+		  </div>
+		  <div class="card-body">
+		    
+		    <p class="card-text text-center"><%= event.description %></p>
+		    <center><a class="btn btn-primary " <%= link_to "Se rendre sur la page de l'événement", event_path(event) %> </a></center>
+		  </div>
+		</div>
+
+      <%end%>
+
+
+    
+</body>
+</html>

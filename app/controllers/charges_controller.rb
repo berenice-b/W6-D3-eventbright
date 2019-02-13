@@ -1,14 +1,16 @@
 class ChargesController < ApplicationController
+    before_action :authenticate_user!, only: [:new]
     def new
-        @event = Event.find(params[:id])
+        @event = Event.find(params[:event_id])
         @amount = @event.price
     end
     
     def create
-        @event = Event.find(params[:event_id])
-        event_id = @event.id
-        @user = current_user
-        attendant_id = @user.id
+      
+      @event = Event.find(params[:event_id])
+      event_id = @event.id
+      @user = current_user
+      attendant_id = @user.id
       # Amount in cents
       @amount = @event.price
     
@@ -20,15 +22,14 @@ class ChargesController < ApplicationController
       charge = Stripe::Charge.create(
         :customer    => customer.id,
         :amount      => @amount,
-        :description => 'Rails Stripe customer',
-        :currency    => 'usd'
+        :description => 'Price Event',
+        :currency    => 'eur'
       )
-      
       @attendance = Attendance.create(attendant_id: attendant_id, event_id: event_id)
-      redirect_to attendance_path(@attendance.id)
+      redirect_to controller: "attendances", action: "show", id: @attendance.id
+    
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
-      
     end
 end
