@@ -42,7 +42,10 @@
         </table>
 
         </div>
+        <% if @event.admin.id == current_user.id %>
+        <%= link_to "Mon espace événement", {:controller => "attendances", :action => "index", :event_id => @event.id} %>
+        <% else %>
         <%= link_to "S'inscrire à l'événement", {:controller => "charges", :action => "new", :event_id => @event.id} %>
-        <%= link_to "Mon espace event", {:controller => "attendances", :action => "index", :event_id => @event.id} %>
+        <% end %>
 </body>
 </html>

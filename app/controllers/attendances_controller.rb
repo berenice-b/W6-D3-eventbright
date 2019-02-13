@@ -1,6 +1,7 @@
 class AttendancesController < ApplicationController
     def index
         @attendances = Attendance.all
+        @events = Event.all
     end
     def new
         @attendance = Attendance.new
