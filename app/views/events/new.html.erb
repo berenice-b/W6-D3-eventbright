@@ -5,8 +5,8 @@
 	<center>
   <div class="jumbotron col-6">
     <%= form_tag url_for(action: 'create'), method: "post" do %>
-      <%= label_tag 'start date' %>
-      <%= text_field_tag 'start date', '' %>
+      <%= label_tag 'start_date' %>
+      <%= text_field_tag 'start_date', '' %>
       <br /> <br />
 	    <%= label_tag 'duration' %>
       <%= text_field_tag 'duration', '' %>
@@ -15,11 +15,11 @@
       <%= text_field_tag 'title', '' %>
       <br /> <br />
       <%= label_tag 'description' %>
-      <%= password_field_tag 'description', '' %>
+      <%= text_field_tag 'description', '' %>
       <%= label_tag 'price' %>
-      <%= password_field_tag 'price', '' %>
+      <%= text_field_tag 'price', '' %>
       <%= label_tag 'location' %>
-      <%= password_field_tag 'location', '' %>
+      <%= text_field_tag 'location', '' %>
       <br /> <br />
       <%= submit_tag "Create event" %>
       <% end %>
